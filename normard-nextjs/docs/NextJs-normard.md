@@ -40,3 +40,13 @@ export default function RootLayout({
 ```
 
 기본적으로 위와 같은 형태의 코드를 제공해준다 <br>
+
+### ✅URL 표현 방법
+Next 는 파일시스템을 통해서 URL 을 표현한다 <br>
+> app 은 루트 -> (localhost:3000/)
+> > app/about-us/page.tsx -> localhost:3000/about-us
+> > app/about-us/company/sales/page.tsx -> localhost:3000/about-us/company/sales
+
+즉 실제로 보여지는 경로에 페이지를 만들기 위해서는 내가 원하는 경로의 디렉토리 안에 'page.tsx','page.jsx' 를 만들어야 한다 <br>
+page.tsx 가 없는 파일은 그냥 경로의 일부분일뿐 실제 페이지는 존재하지 않는다 <br>
+존재하게 하고 싶으면 'page.tsx' 생성이 필수다 <br>
