@@ -50,3 +50,32 @@ Next 는 파일시스템을 통해서 URL 을 표현한다 <br>
 즉 실제로 보여지는 경로에 페이지를 만들기 위해서는 내가 원하는 경로의 디렉토리 안에 'page.tsx','page.jsx' 를 만들어야 한다 <br>
 page.tsx 가 없는 파일은 그냥 경로의 일부분일뿐 실제 페이지는 존재하지 않는다 <br>
 존재하게 하고 싶으면 'page.tsx' 생성이 필수다 <br>
+
+### layout 개념
+Next 에는 특별한 파일명이 하나가 존재한다.
+1) not-found.tsx
+   - path 를 찾을 수 없을 때 보여주는 화면
+2) page.tsx
+3) layout.tsx
+
+대표적으로 위 3가지가 있다. <br>
+
+```jsx
+"use client"; /* CSR 방식을 사용하겠다고 선언 */
+
+import Link from "next/link";
+import {usePathname} from "next/navigation";
+
+export default function Navigation() {
+   const path = usePathname();
+
+   return (
+           <nav>
+              <ul>
+                 <li><Link href="/">Home</Link>{path === "/" ? "⭐️":""}</li>
+                 <li><Link href="/about-us" >About Us</Link>{path === "/about-us"?"⭐️":""}</li>
+              </ul>
+           </nav>
+   )
+}
+```
